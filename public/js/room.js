@@ -91,5 +91,5 @@ function whiteboard() {
 }
 
 function texteditor() {
-  window.open("", "_blank"); // Replace with the URL of the new page
+  window.open("https://texteditorav.netlify.app/", "_blank"); // Replace with the URL of the new page
 }
