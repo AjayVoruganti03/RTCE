@@ -38,16 +38,16 @@ let userIdInDisplayFrame = null;
 let expandVideoFrame = (e) => {
 
   let child = displayFrame.children[0]
-  if(child){
-      document.getElementById('streams__container').appendChild(child)
+  if (child) {
+    document.getElementById('streams__container').appendChild(child)
   }
 
   displayFrame.style.display = 'block'
   displayFrame.appendChild(e.currentTarget)
   userIdInDisplayFrame = e.currentTarget.id
 
-  for(let i = 0; videoFrames.length > i; i++){
-    if(videoFrames[i].id != userIdInDisplayFrame){
+  for (let i = 0; videoFrames.length > i; i++) {
+    if (videoFrames[i].id != userIdInDisplayFrame) {
       videoFrames[i].style.height = '100px'
       videoFrames[i].style.width = '100px'
     }
@@ -55,21 +55,21 @@ let expandVideoFrame = (e) => {
 
 }
 
-for(let i = 0; videoFrames.length > i; i++){
+for (let i = 0; videoFrames.length > i; i++) {
   videoFrames[i].addEventListener('click', expandVideoFrame)
 }
 
 
 let hideDisplayFrame = () => {
-    userIdInDisplayFrame = null
-    displayFrame.style.display = null
+  userIdInDisplayFrame = null
+  displayFrame.style.display = null
 
-    let child = displayFrame.children[0]
-    document.getElementById('streams__container').appendChild(child)
+  let child = displayFrame.children[0]
+  document.getElementById('streams__container').appendChild(child)
 
-    for(let i = 0; videoFrames.length > i; i++){
-      videoFrames[i].style.height = '300px'
-      videoFrames[i].style.width = '300px'
+  for (let i = 0; videoFrames.length > i; i++) {
+    videoFrames[i].style.height = '300px'
+    videoFrames[i].style.width = '300px'
   }
 }
 
@@ -87,9 +87,31 @@ displayFrame.addEventListener('click', hideDisplayFrame)
 
 // JavaScript code
 function whiteboard() {
-  window.open("https://white-board-av.netlify.app/", "_blank"); // Replace with the URL of the new page
+  // Get the query string from the URL
+  const queryString = window.location.search;
+
+  // Parse the query string to get the search parameters
+  const searchParams = new URLSearchParams(queryString);
+
+  // Get the value of the 'room' parameter
+  const roomId = searchParams.get('room');
+
+  
+  let link = "https://white-board-av.netlify.app/?room=" + roomId;
+
+  window.open(link, "_blank"); // Replace with the URL of the new page
 }
 
 function texteditor() {
-  window.open("https://texteditorav.netlify.app/", "_blank"); // Replace with the URL of the new page
+  const queryString = window.location.search;
+
+  // Parse the query string to get the search parameters
+  const searchParams = new URLSearchParams(queryString);
+
+  // Get the value of the 'room' parameter
+  const roomId = searchParams.get('room');
+
+  
+  let link = "https://texteditorav.netlify.app/" + roomId;
+  window.open(link, "_blank"); // Replace with the URL of the new page
 }
