@@ -112,6 +112,6 @@ function texteditor() {
   const roomId = searchParams.get('room');
 
   
-  let link = "https://texteditorav.netlify.app/" + roomId;
+  let link = "https://texteditorav.netlify.app/";
   window.open(link, "_blank"); // Replace with the URL of the new page
 }
